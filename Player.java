@@ -8,5 +8,12 @@ abstract class Player {
     board = b;
   }
   abstract void move();
-  abstract int getVal();
+  
+  /**
+   * Accessor method for the val variable
+   * @return The value of the variable val
+   */
+  int getVal() {
+    return val;
+  }
 }

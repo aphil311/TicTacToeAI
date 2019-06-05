@@ -2,9 +2,6 @@ public class AI extends Player{
   public AI(String s, int v, Board b) {
     super(s, v, b);
   }
-  public int getVal() {
-    return val;
-  }
   public void move() {
     int x=0;
     int y=0;

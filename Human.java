@@ -19,14 +19,6 @@ public class Human extends Player {
   }
 
   /**
-   * Accessor method for the val variable
-   * @return The value of the variable val
-   */
-  public int getVal() {
-    return val;
-  }
-
-  /**
    * Asks a question and returns the response
    * @param s The question to be asked
    * @return The response as an integer

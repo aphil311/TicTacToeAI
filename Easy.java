@@ -1,6 +1,6 @@
 import java.util.Random;
+
 public class Easy extends Player {
-  Random generator=new Random();
   public Easy(String s, int v, Board b) {
     super(s, v, b);
   }
@@ -13,8 +13,5 @@ public class Easy extends Player {
       y=generator.nextInt(3);
     }
     board.setPos(x,y, val, icon);
-  }
-  public int getVal() {
-    return val;
   }
 }
