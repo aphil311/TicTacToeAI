@@ -12,7 +12,7 @@ public class Human extends Player {
     int x = getInput("Row: ");
     int y = getInput("Col: ");
 
-    if(board.getPos(x, y)==0)
+    if(board.getPos(x-1, y-1)==0)
       board.setPos(x-1,y-1, val, icon);
     else
       move();
@@ -40,7 +40,6 @@ public class Human extends Player {
       System.out.print("Not valid, try again: ");
       response = scan.nextInt();
     }
-    scan.close();
     return response;
   }
 }
