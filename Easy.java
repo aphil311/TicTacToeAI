@@ -1,15 +1,10 @@
 import java.util.Random;
-public class Easy implements Player {
+public class Easy extends Player {
   Random generator=new Random();
-  private String icon;
-  private int val;
-  Board board;
-  public Easy(String symbol, int value, Board b) {
-    val = value;
-    icon = symbol;
-    board = b;
+  public Easy(String s, int v, Board b) {
+    super(s, v, b);
   }
-  public void move(int opp) {
+  public void move() {
     Random generator=new Random();
     int x=generator.nextInt(3);
     int y=generator.nextInt(3);

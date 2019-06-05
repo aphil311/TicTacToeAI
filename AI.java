@@ -1,16 +1,11 @@
-public class AI implements Player{
-  private String icon;
-  private int val;
-  Board board;
-  public AI(String symbol, int value, Board b) {
-    val = value;
-    icon = symbol;
-    board = b;
+public class AI extends Player{
+  public AI(String s, int v, Board b) {
+    super(s, v, b);
   }
   public int getVal() {
     return val;
   }
-  public void move(int z) {
+  public void move() {
     int x=0;
     int y=0;
     if(findWin(val)!=null) {
