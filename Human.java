@@ -1,33 +1,46 @@
 import java.util.Scanner;
-public class Human implements Player {
-  private String icon;
-  private int val;
-  Board board;
-  public Human(String symbol, int value, Board b) {
-    val = value;
-    icon = symbol;
-    board = b;
-  }
-  public void move(int opp) {
-    Scanner scan = new Scanner(System.in);
-    int x;
-    int y;
-    System.out.println("Your turn: ");
-    System.out.print("Row: ");
-    x=scan.nextInt();
-    System.out.print("Col: ");
-    y=scan.nextInt();
-    while(x>3||x<0||y>3||y<0||board.getPos(x-1,y-1)!=0){
-      System.out.print("Row: ");
-      x=scan.nextInt();
-      System.out.print("Col: ");
-      y=scan.nextInt();
-    }
 
-    board.setPos(x-1,y-1, val, icon);
+public class Human extends Player {
+  public Human(String s, int v, Board b) {
+    super(s, v, b);
   }
 
+  /**
+   * Allows the user to play on their move. Checks if play is legal.
+   */
+  public void move() {
+    int x = getInput("Row: ");
+    int y = getInput("Col: ");
+
+    if(board.getPos(x, y)==0)
+      board.setPos(x-1,y-1, val, icon);
+    else
+      move();
+  }
+
+  /**
+   * Accessor method for the val variable
+   * @return The value of the variable val
+   */
   public int getVal() {
     return val;
+  }
+
+  /**
+   * Asks a question and returns the response
+   * @param s The question to be asked
+   * @return The response as an integer
+   */
+  private int getInput(String s) {
+    Scanner scan = new Scanner(System.in);
+    int response;
+    System.out.print(s);
+    response = scan.nextInt();
+    while(response>3||response<1) {
+      System.out.print("Not valid, try again: ");
+      response = scan.nextInt();
+    }
+    scan.close();
+    return response;
   }
 }
