@@ -1,10 +1,8 @@
-//=============================================================================
-// ~File Name: Board.java
-//
-// ~Author: Aphillips
-//
-// ~Purpose: Represents a Tic Tac Toe board.
-//=============================================================================
+/**
+ * Represents a Tic Tac Toe board.
+ * @author aphil311
+ * @version
+ */
 
 public class Board {
   // Instance Data
@@ -24,18 +22,31 @@ public class Board {
   public Board() {}
 
   /**
-   * Sets the 
-   *
+   * Sets a position on the board to a symbol and an integer
+   * @param x The row that the client wishes to change
+   * @param y The column that the client wishes to change
+   * @param a The integer that represents the client
+   * @param b The symbol that represents the client
    */
   public void setPos(int x, int y, int a, String b) {
     iBoard[x][y] = a;
     sBoard[x][y] = b;
   }
 
+  /**
+   * Returns the integer at the position that the client wishes to access
+   * @param x The row that the client wishes to access
+   * @param y The column that the client wishes to access
+   * @return The integer value present at (x,y) on the board
+   */
   public int getPos(int x, int y) {
     return iBoard[x][y];
   }
 
+  /**
+   * Returns the number of spaces still available on the board
+   * @return The ammount of free spaces left on the board as an integer
+   */
   public int isFull() {
     int count=0;
     for(int x = 0; x<3; x++) {
@@ -47,6 +58,10 @@ public class Board {
     return count;
   }
 
+  /**
+   * Determines whether or not a player has won the game
+   * @return True if the game has been won, false otherwise
+   */
   public boolean isWon(){
     for(int i=0; i<3; i++) {
       if(addRow(i)==9||addCol(i)==9) {
@@ -70,10 +85,21 @@ public class Board {
     return false;
   }
 
+  /**
+   * Allows the client to see which player has won the game
+   * @return The integer representative of the player who has won the game
+   */
   public int getWinner() {
     return winner;
   }
 
+
+  // TODO: Combine these functions
+  /**
+   * Finds the sum of all the integers present in a row
+   * @param row The index of the row to be added up
+   * @return The sum of all numbers in the row
+   */
   public int addRow(int row) {
     int count = 0;
     for(int i = 0; i<3; i++) {
@@ -82,6 +108,11 @@ public class Board {
     return count;
   }
 
+  /**
+   * Finds the sum of all the integers present in a row
+   * @param col The index of the column to be added up
+   * @return The sum of all numbers in the column
+   */
   public int addCol(int col) {
     int count = 0;
     for(int j = 0; j<3; j++) {
@@ -90,6 +121,7 @@ public class Board {
     return count;
   }
 
+  // TODO: Simplify this function
   public int addDiag(int a) {
     if(a==0) {
       int count = 0;
@@ -109,7 +141,9 @@ public class Board {
       return -1;
   }
 
+  @Override
   public String toString() {
+    // TODO: Fill this more efficiently with a loop
     String row1 = sBoard[0][0] + "|" + sBoard[0][1] + "|" + sBoard[0][2];
     String row2 = sBoard[1][0] + "|" + sBoard[1][1] + "|" + sBoard[1][2];
     String row3 = sBoard[2][0] + "|" + sBoard[2][1] + "|" + sBoard[2][2];
