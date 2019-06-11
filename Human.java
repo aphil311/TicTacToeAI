@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class Human extends Player {
-  public Human(String s, int v, Board b) {
-    super(s, v, b);
+  public Human(String s, int v, Board b, int c) {
+    super(s, v, b,c);
   }
 
   /**
