@@ -21,11 +21,11 @@ So to play the top right corner you would respond with "1", then "3".
 row: 1
 col: 3
 
-X|X|X
+ | |X
 -+-+-
-X|X|X
+ | |
 -+-+-
-X|X|X
+ | | 
 ```
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
