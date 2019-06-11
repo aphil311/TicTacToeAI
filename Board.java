@@ -93,8 +93,6 @@ public class Board {
     return winner;
   }
 
-
-  // TODO: Combine these functions
   /**
    * Finds the sum of all the integers present in a row
    * @param row The index of the row to be added up
