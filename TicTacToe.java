@@ -1,21 +1,22 @@
 public class TicTacToe {
   public static void main(String[] args) {
     Board tictactoe = new Board();
-    Player player1 = new AI("X", 3, tictactoe);
-    Player player2 = new Easy("O", 10, tictactoe);
+    Player player1 = new AI("X", 3, tictactoe, 10);
+    Player player2 = new Easy("O", 10, tictactoe, 3);
     while(tictactoe.isFull()>2&&!tictactoe.isWon()) {
-      player1.move(player2.getVal());
+      player1.move();
       System.out.println(tictactoe);
       if(!tictactoe.isWon()) {
-        player2.move(player1.getVal());
+        player2.move();
         System.out.println(tictactoe);
       }
     }
     if(tictactoe.isFull()>0&&!tictactoe.isWon()) {
-      player1.move(player2.getVal());
+      player1.move();
       System.out.println(tictactoe);
     }
 
+    // TODO: Fix bug where last move is a draw
     switch(tictactoe.getWinner()) {
       case 0:
         System.out.println("Draw!");

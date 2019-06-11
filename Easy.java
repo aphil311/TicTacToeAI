@@ -1,8 +1,8 @@
 import java.util.Random;
 
 public class Easy extends Player {
-  public Easy(String s, int v, Board b) {
-    super(s, v, b);
+  public Easy(String s, int v, Board b, int c) {
+    super(s, v, b, c);
   }
   public void move() {
     Random generator=new Random();
