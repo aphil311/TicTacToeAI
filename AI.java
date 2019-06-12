@@ -75,33 +75,30 @@ public class AI extends Player{
   private void attemptCorner() {
     int i=0;
     int j=2;
-    if (board.getPos(i, j)==0) {
-      System.out.println("Option 1");
-      System.out.println(board);
-      board.setPos(i, j, val, icon);
-      System.out.println(board);
-      return;
+    if (board.getPos(0,0) == opp) {
+      if(board.getPos(2, 2)==0) {
+        board.setPos(2, 2, val, icon);
+        return;
+      }
     }
-    else if (board.getPos(i, i)==0) {
-      System.out.println("Option 2");
-      System.out.println(board);
-      board.setPos(i, i, val, icon);
-      System.out.println(board);
-      return;
+    if(board.getPos(2, 2)==opp) {
+      if(board.getPos(0, 0)==0) {
+        board.setPos(0, 0, val, icon);
+        return;
+      }
     }
-    else if (board.getPos(j, j)==0) {
-      System.out.println("Option 3");
-      System.out.println(board);
-      board.setPos(j, j, val, icon);
-      System.out.println(board);
-      return;
+    if(board.getPos(2, 0)==opp) {
+      if(board.getPos(0, 2)==0) {
+        board.setPos(2, 2, val, icon);
+        return;
+      }
     }
-    else if (board.getPos(j, i)==0) {
-      System.out.println("Option 4");
-      board.setPos(j, i, val, icon);
-      return;
+    if(board.getPos(0, 2)==opp) {
+      if(board.getPos(2, 0)==0) {
+        board.setPos(2, 0, val, icon);
+        return;
+      }
     }
-    
   }
 
   private void playSide() {
