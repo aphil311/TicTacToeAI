@@ -73,8 +73,6 @@ public class AI extends Player{
   }
 
   private void attemptCorner() {
-    int i=0;
-    int j=2;
     if (board.getPos(0,0) == opp) {
       if(board.getPos(2, 2)==0) {
         board.setPos(2, 2, val, icon);
@@ -98,6 +96,34 @@ public class AI extends Player{
         board.setPos(2, 0, val, icon);
         return;
       }
+    }
+    playRandomCorner();
+  }
+
+  private void playRandomCorner() {
+    Random generator = new Random();
+    List<Integer> points = new ArrayList();
+    if (board.getPos(0,0) == 0) {
+      points.add(0);
+      points.add(0);
+    }
+    if(board.getPos(2, 2)==0) {
+      points.add(2);
+      points.add(2);
+    }
+    if(board.getPos(2, 0)==opp) {
+      points.add(2);
+      points.add(0);
+    }
+    if(board.getPos(0, 2)==opp) {
+      points.add(0);
+      points.add(2);
+    }
+    if(points.size()==0)
+      playSide();
+    else{
+      int num = generator.nextInt(points.size())*2;
+      board.setPos(points.get(num), points.get(num+1), val, icon);
     }
   }
 
