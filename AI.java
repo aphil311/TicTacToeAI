@@ -1,4 +1,6 @@
 import java.util.Random;
+import java.util.List;
+import java.util.ArrayList;
 
 public class AI extends Player{
   public AI(String s, int v, Board b, int c) {
@@ -87,7 +89,7 @@ public class AI extends Player{
     }
     if(board.getPos(2, 0)==opp) {
       if(board.getPos(0, 2)==0) {
-        board.setPos(2, 2, val, icon);
+        board.setPos(0, 2, val, icon);
         return;
       }
     }
