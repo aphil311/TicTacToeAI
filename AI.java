@@ -113,18 +113,19 @@ public class AI extends Player{
       points.add(2);
       points.add(2);
     }
-    if(board.getPos(2, 0)==opp) {
+    if(board.getPos(2, 0)==0) {
       points.add(2);
       points.add(0);
     }
-    if(board.getPos(0, 2)==opp) {
+    if(board.getPos(0, 2)==0) {
       points.add(0);
       points.add(2);
     }
     if(points.size()==0)
       playSide();
-    else{
-      int num = generator.nextInt(points.size())*2;
+    else {
+      int num = generator.nextInt(points.size()/2)*2;
+      System.out.println(num);
       board.setPos(points.get(num), points.get(num+1), val, icon);
     }
   }
