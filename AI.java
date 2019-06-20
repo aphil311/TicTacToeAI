@@ -6,6 +6,10 @@ public class AI extends Player{
   public AI(String s, int v, Board b, int c) {
     super(s, v, b, c);
   }
+
+  /**
+   * Moves.
+   */
   public void move() {
     if(winExists()[0]>=0) {
       System.out.println("Found a winning move!");
@@ -16,6 +20,10 @@ public class AI extends Player{
     }
   }
 
+  /**
+   * Searches for a space on the board where the game could be won instantly
+   * @return The coodinates of the spcae needed in order to win the game.
+   */
   private int[] winExists() {
     int[] points = {-1, -1};
     for(int i=0; i<3; i++) {
@@ -70,11 +78,11 @@ public class AI extends Player{
       board.setPos(1, 1, val, icon);
     }
     else {
-      attemptCorner();
+      attemptOppCorner();
     }
   }
 
-  private void attemptCorner() {
+  private void attemptOppCorner() {
     if (board.getPos(0,0) == opp) {
       if(board.getPos(2, 2)==0) {
         board.setPos(2, 2, val, icon);
@@ -102,7 +110,10 @@ public class AI extends Player{
     playRandomCorner();
   }
 
-  private void playRandomCorner() {
+  /**
+   * Moves to a random corner
+   */
+    private void playRandomCorner() {
     Random generator = new Random();
     List<Integer> points = new ArrayList();
     if (board.getPos(0,0) == 0) {
@@ -130,6 +141,9 @@ public class AI extends Player{
     }
   }
 
+  /**
+   * Plays a side if no corners are availabe
+   */
   private void playSide() {
     if (board.getPos(0, 1)==0) {
       board.setPos(0, 1, val, icon);
