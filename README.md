@@ -24,6 +24,3 @@ col: 3
 -+-+-
  | | 
 ```
-
-## License
-[Unlicense](http://unlicense.org)
